@@ -22,14 +22,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-class RNBottomSheet extends ReactContextBaseJavaModule implements ActivityEventListener {
+class RNBottomSheet extends ReactContextBaseJavaModule {
 
     private Callback shareSuccessCallback;
     private Callback shareFailureCallback;
 
     public RNBottomSheet(ReactApplicationContext reactContext) {
         super(reactContext);
-        reactContext.addActivityEventListener(this);
     }
 
     @Override
@@ -100,10 +99,5 @@ class RNBottomSheet extends ReactContextBaseJavaModule implements ActivityEventL
         } else {
             failureCallback.invoke(new Exception("The app you want to share is not installed."));
         }
-    }
-
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
     }
 }
